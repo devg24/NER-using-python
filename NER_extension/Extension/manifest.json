@@ -1,0 +1,31 @@
+{
+    "manifest_version" : 3,
+    "name" : "NER",
+    "version" : "1.0",
+    "description" : "NER",
+    "action" : {
+        "default_popup" : "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+      },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "background",
+      "scripting"],
+
+      "content_scripts": [
+        {
+          "matches": [ "https://en.wikipedia.org/*"],
+          "js": ["content.js","jquery-3.7.0.min.js"]
+        }
+      ],
+      "host_permissions": [
+            "http://127.0.0.1:8000/*",
+            "https://127.0.0.1:8000/*",
+            "https://en.wikipedia.org/*"
+        ]
+}

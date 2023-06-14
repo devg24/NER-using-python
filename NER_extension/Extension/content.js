@@ -54,3 +54,14 @@ function highlightEntities(entities) {
   
   
   
+  function getTextNodes(element) {
+    var textNodes = [];
+    var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+  
+    while (walker.nextNode()) {
+      textNodes.push(walker.currentNode);
+    }
+  
+    return textNodes;
+  }
+  
